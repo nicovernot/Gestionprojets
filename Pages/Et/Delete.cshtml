@@ -1,0 +1,34 @@
+@page
+@model Medecins.Pages.Et.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Exigeance_Tache</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance_Tache.Exigeance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance_Tache.Exigeance.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance_Tache.Tache)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance_Tache.Tache.description)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Exigeance_Tache.Exigeance_TacheID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

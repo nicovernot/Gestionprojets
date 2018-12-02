@@ -1,0 +1,31 @@
+@page
+@model Medecins.Pages.Et.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exigeance_Tache</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance_Tache.Exigeance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance_Tache.Exigeance.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance_Tache.Tache)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance_Tache.Tache.description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Exigeance_Tache.Exigeance_TacheID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

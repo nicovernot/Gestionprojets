@@ -1,0 +1,43 @@
+@page
+@model Medecins.Pages.Exigeances.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exigeance</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance.nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance.nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance.Projet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance.Projet.ProjetID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Exigeance.TypeExigeance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exigeance.TypeExigeance.nom)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Exigeance.ExigeanceID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

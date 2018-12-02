@@ -1,0 +1,61 @@
+@page
+@model Medecins.Pages.Taches.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tache</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.datedemarage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.datedemarage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.nbjours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.nbjours)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.datedebuttache)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.datedebuttache)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.datefintache)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.datefintache)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.Jalons)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.Jalons.nom)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Tache.TacheID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

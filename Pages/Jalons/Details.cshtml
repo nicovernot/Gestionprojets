@@ -1,0 +1,31 @@
+@page
+@model Medecins.Pages.Jalons.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jalon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Jalon.nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Jalon.nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Jalon.Projet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Jalon.Projet.ProjetID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Jalon.JalonID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

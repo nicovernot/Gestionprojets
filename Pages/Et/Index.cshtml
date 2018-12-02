@@ -1,0 +1,42 @@
+@page
+@model Medecins.Pages.Et.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Exigeance_Tache[0].Exigeance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exigeance_Tache[0].Tache)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Exigeance_Tache) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exigeance.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tache.description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Exigeance_TacheID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Exigeance_TacheID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Exigeance_TacheID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

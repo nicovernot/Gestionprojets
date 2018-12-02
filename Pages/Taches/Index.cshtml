@@ -1,0 +1,72 @@
+@page
+@model Medecins.Pages.Taches.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tache[0].nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tache[0].description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tache[0].datedemarage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tache[0].nbjours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tache[0].datedebuttache)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tache[0].datefintache)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tache[0].Jalons)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tache) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datedemarage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nbjours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datedebuttache)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datefintache)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jalons.nom)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TacheID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TacheID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TacheID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

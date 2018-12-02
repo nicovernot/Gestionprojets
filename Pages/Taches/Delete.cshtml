@@ -1,0 +1,64 @@
+@page
+@model Medecins.Pages.Taches.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tache</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.datedemarage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.datedemarage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.nbjours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.nbjours)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.datedebuttache)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.datedebuttache)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.datefintache)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.datefintache)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tache.Jalons)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tache.Jalons.nom)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Tache.TacheID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

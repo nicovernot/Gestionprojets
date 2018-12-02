@@ -1,0 +1,42 @@
+@page
+@model Medecins.Pages.Jalons.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jalon[0].nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jalon[0].Projet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Jalon) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projet.ProjetID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.JalonID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.JalonID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.JalonID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
