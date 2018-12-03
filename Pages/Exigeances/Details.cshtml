@@ -38,6 +38,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Exigeance.ExigeanceID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Exigeance.ExigeanceID">Edition</a> |
+    <a asp-page="./Index" asp-route-id="@Request.Query["id"]">Retour à la liste</a>
 </div>

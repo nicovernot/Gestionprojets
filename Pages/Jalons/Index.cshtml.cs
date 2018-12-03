@@ -21,9 +21,9 @@ namespace Medecins.Pages.Jalons
 
         public IList<Jalon> Jalon { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int id)
         {
-            Jalon = await _context.jalon
+            Jalon = await _context.jalon.Where(x=>x.ProjetiD==id)
                 .Include(j => j.Projet).ToListAsync();
         }
     }

@@ -39,7 +39,7 @@ namespace Medecins.Pages.Exigeances
             _context.Exigeance.Add(Exigeance);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index/" ,new{id=Exigeance.ProjetID});
         }
     }
 }

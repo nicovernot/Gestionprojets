@@ -21,9 +21,9 @@ namespace Medecins.Pages.Exigeances
 
         public IList<Exigeance> Exigeance { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int id)
         {
-            Exigeance = await _context.Exigeance
+            Exigeance = await _context.Exigeance.Where(x=>x.ProjetID==id)
                 .Include(e => e.Projet)
                 .Include(e => e.TypeExigeance).ToListAsync();
         }

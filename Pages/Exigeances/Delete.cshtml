@@ -5,9 +5,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>éffacer</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Vous etes sur?</h3>
 <div>
     <h4>Exigeance</h4>
     <hr />
@@ -41,6 +41,6 @@
     <form method="post">
         <input type="hidden" asp-for="Exigeance.ExigeanceID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./Index" asp-route-id="@Request.Query["id"]">Retour à la liste</a>
     </form>
 </div>

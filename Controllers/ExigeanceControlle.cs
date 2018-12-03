@@ -37,6 +37,17 @@ public ActionResult<Exigeance> GetById(long id)
     return item;
 }
 
+[HttpGet("byproj{id}", Name = "GetProjetExigeance")]
+public ActionResult<List<Exigeance>> GetByProjectId(long id)
+{
+    var item = _context.Exigeance.Where(x=>x.ProjetID==id);
+    if (item == null)
+    {
+        return NotFound();
+    }
+    return item.ToList();
+}
+
 [HttpPost]
 public IActionResult Create(Exigeance item)
 {

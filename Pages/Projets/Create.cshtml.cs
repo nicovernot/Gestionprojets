@@ -21,7 +21,7 @@ namespace Medecins.Pages.Projets
 
         public IActionResult OnGet()
         {
-        ViewData["RespID"] = new SelectList(_context.resp, "RespID", "RespID");
+        ViewData["RespID"] = new SelectList(_context.resp, "RespID", "nom");
             return Page();
         }
 

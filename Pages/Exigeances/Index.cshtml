@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Exigeances</h2>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" asp-route-id="@Request.Query["id"]">Create New</a>
 </p>
 <table class="table">
     <thead>

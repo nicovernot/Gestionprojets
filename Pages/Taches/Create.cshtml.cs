@@ -38,7 +38,7 @@ namespace Medecins.Pages.Taches
             _context.taches.Add(Tache);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{id = Tache.JalonID});
         }
     }
 }
