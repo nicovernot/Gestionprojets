@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieContexts.Models;
 
-namespace Medecins.Migrations
+namespace Gprojet.Migrations
 {
     [DbContext(typeof(MovieContext))]
     partial class MovieContextModelSnapshot : ModelSnapshot
@@ -65,6 +65,10 @@ namespace Medecins.Migrations
 
                     b.Property<int>("ProjetiD");
 
+                    b.Property<int>("RespID");
+
+                    b.Property<DateTime?>("datefinprevue");
+
                     b.Property<string>("nom")
                         .IsRequired();
 
@@ -72,41 +76,9 @@ namespace Medecins.Migrations
 
                     b.HasIndex("ProjetiD");
 
+                    b.HasIndex("RespID");
+
                     b.ToTable("jalon");
-                });
-
-            modelBuilder.Entity("Medecins.Models.Medecin", b =>
-                {
-                    b.Property<int>("MedecinID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("nom");
-
-                    b.Property<string>("prenom");
-
-                    b.HasKey("MedecinID");
-
-                    b.ToTable("Medecins");
-                });
-
-            modelBuilder.Entity("Patients.Models.Patient", b =>
-                {
-                    b.Property<int>("PatientID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("MedecinID");
-
-                    b.Property<DateTime>("datenaissance");
-
-                    b.Property<string>("nom");
-
-                    b.Property<string>("prenom");
-
-                    b.HasKey("PatientID");
-
-                    b.HasIndex("MedecinID");
-
-                    b.ToTable("Patients");
                 });
 
             modelBuilder.Entity("Projets.Models.Projet", b =>
@@ -130,32 +102,6 @@ namespace Medecins.Migrations
                     b.ToTable("Projets");
                 });
 
-            modelBuilder.Entity("Rdvs.Models.Rdv", b =>
-                {
-                    b.Property<int>("RdvID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DateRdv");
-
-                    b.Property<DateTime>("FinDateRdv");
-
-                    b.Property<int>("MedecinId");
-
-                    b.Property<int>("PatientId");
-
-                    b.Property<int>("SalleId");
-
-                    b.HasKey("RdvID");
-
-                    b.HasIndex("MedecinId");
-
-                    b.HasIndex("PatientId");
-
-                    b.HasIndex("SalleId");
-
-                    b.ToTable("Rdvs");
-                });
-
             modelBuilder.Entity("Resps.Models.Resp", b =>
                 {
                     b.Property<int>("RespID")
@@ -168,19 +114,6 @@ namespace Medecins.Migrations
                     b.ToTable("resp");
                 });
 
-            modelBuilder.Entity("Salles.Models.Salle", b =>
-                {
-                    b.Property<int>("SalleID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("nom")
-                        .HasColumnName("nom");
-
-                    b.HasKey("SalleID");
-
-                    b.ToTable("salles");
-                });
-
             modelBuilder.Entity("Taches.Models.Tache", b =>
                 {
                     b.Property<int>("TacheID")
@@ -188,7 +121,7 @@ namespace Medecins.Migrations
 
                     b.Property<int>("JalonID");
 
-                    b.Property<int?>("RespsRespID");
+                    b.Property<int>("RespID");
 
                     b.Property<int?>("TachePreceTacheID");
 
@@ -210,7 +143,7 @@ namespace Medecins.Migrations
 
                     b.HasIndex("JalonID");
 
-                    b.HasIndex("RespsRespID");
+                    b.HasIndex("RespID");
 
                     b.HasIndex("TachePreceTacheID");
 
@@ -266,13 +199,11 @@ namespace Medecins.Migrations
                         .WithMany("Jalon")
                         .HasForeignKey("ProjetiD")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
 
-            modelBuilder.Entity("Patients.Models.Patient", b =>
-                {
-                    b.HasOne("Medecins.Models.Medecin", "Medecin")
-                        .WithMany()
-                        .HasForeignKey("MedecinID");
+                    b.HasOne("Resps.Models.Resp", "Resp")
+                        .WithMany("Jalon")
+                        .HasForeignKey("RespID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Projets.Models.Projet", b =>
@@ -280,24 +211,6 @@ namespace Medecins.Migrations
                     b.HasOne("Resps.Models.Resp", "resp")
                         .WithMany("Projet")
                         .HasForeignKey("RespID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Rdvs.Models.Rdv", b =>
-                {
-                    b.HasOne("Medecins.Models.Medecin", "Medecin")
-                        .WithMany("Rdv")
-                        .HasForeignKey("MedecinId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Patients.Models.Patient", "Patient")
-                        .WithMany("Rdv")
-                        .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Salles.Models.Salle", "Salle")
-                        .WithMany("Rdv")
-                        .HasForeignKey("SalleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -310,7 +223,8 @@ namespace Medecins.Migrations
 
                     b.HasOne("Resps.Models.Resp", "Resps")
                         .WithMany("Tache")
-                        .HasForeignKey("RespsRespID");
+                        .HasForeignKey("RespID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Taches.Models.Tache", "TachePrece")
                         .WithMany()

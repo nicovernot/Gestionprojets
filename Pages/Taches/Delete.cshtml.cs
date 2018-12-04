@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieContexts.Models;
 using Taches.Models;
 
-namespace Medecins.Pages.Taches
+namespace Gprojet.Pages.Taches
 {
     public class DeleteModel : PageModel
     {
@@ -30,7 +30,8 @@ namespace Medecins.Pages.Taches
             }
 
             Tache = await _context.taches
-                .Include(t => t.Jalons).FirstOrDefaultAsync(m => m.TacheID == id);
+                .Include(t => t.Jalons)
+                .Include(t => t.Resps).FirstOrDefaultAsync(m => m.TacheID == id);
 
             if (Tache == null)
             {

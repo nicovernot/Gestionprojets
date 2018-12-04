@@ -29,6 +29,8 @@ public class Tache {
     [Required]
     public int nbjours {get;set;}
 
+[Required]
+public int RespID{ get;set;}
     public virtual Resp Resps {get;set;}
 
     

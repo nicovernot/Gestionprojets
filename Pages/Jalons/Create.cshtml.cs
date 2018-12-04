@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Jalons.Models;
 using MovieContexts.Models;
 
-namespace Medecins.Pages.Jalons
+namespace Gprojet.Pages.Jalons
 {
     public class CreateModel : PageModel
     {
@@ -21,7 +21,8 @@ namespace Medecins.Pages.Jalons
 
         public IActionResult OnGet()
         {
-        ViewData["ProjetiD"] = new SelectList(_context.Projets, "ProjetID", "ProjetID");
+        ViewData["ProjetiD"] = new SelectList(_context.Projets, "ProjetID", "nom");
+        ViewData["RespID"] = new SelectList(_context.resp, "RespID", "nom");
             return Page();
         }
 

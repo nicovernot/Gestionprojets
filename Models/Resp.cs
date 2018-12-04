@@ -5,6 +5,7 @@ using System.Text;
 using Exigeances.Models;
 using Taches.Models;
 using Projets.Models;
+using Jalons.Models;
 
 namespace Resps.Models
 {
@@ -19,6 +20,7 @@ public class Resp {
 
     public virtual ICollection<Tache> Tache { get; set; }
 
+    public virtual ICollection<Jalon> Jalon { get; set; }
 }
 
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieContexts.Models;
 using Taches.Models;
 
-namespace Medecins.Pages.Taches
+namespace Gprojet.Pages.Taches
 {
     public class IndexModel : PageModel
     {
@@ -21,10 +21,11 @@ namespace Medecins.Pages.Taches
 
         public IList<Tache> Tache { get;set; }
 
-        public async Task OnGetAsync(int id)
+        public async Task OnGetAsync()
         {
-            Tache = await _context.taches.Where(x=>x.JalonID==id)
-                .Include(t => t.Jalons).ToListAsync();
+            Tache = await _context.taches
+                .Include(t => t.Jalons)
+                .Include(t => t.Resps).ToListAsync();
         }
     }
 }

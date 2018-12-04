@@ -1,26 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Medecins.Migrations
+namespace Gprojet.Migrations
 {
-    public partial class mi0 : Migration
+    public partial class mi1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Medecins",
-                columns: table => new
-                {
-                    MedecinID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    nom = table.Column<string>(nullable: true),
-                    prenom = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Medecins", x => x.MedecinID);
-                });
-
             migrationBuilder.CreateTable(
                 name: "resp",
                 columns: table => new
@@ -32,41 +18,6 @@ namespace Medecins.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_resp", x => x.RespID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "salles",
-                columns: table => new
-                {
-                    SalleID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    nom = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_salles", x => x.SalleID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Patients",
-                columns: table => new
-                {
-                    PatientID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    nom = table.Column<string>(nullable: true),
-                    prenom = table.Column<string>(nullable: true),
-                    MedecinID = table.Column<int>(nullable: true),
-                    datenaissance = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Patients", x => x.PatientID);
-                    table.ForeignKey(
-                        name: "FK_Patients_Medecins_MedecinID",
-                        column: x => x.MedecinID,
-                        principalTable: "Medecins",
-                        principalColumn: "MedecinID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,48 +43,15 @@ namespace Medecins.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rdvs",
-                columns: table => new
-                {
-                    RdvID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    DateRdv = table.Column<DateTime>(nullable: false),
-                    FinDateRdv = table.Column<DateTime>(nullable: false),
-                    MedecinId = table.Column<int>(nullable: false),
-                    SalleId = table.Column<int>(nullable: false),
-                    PatientId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rdvs", x => x.RdvID);
-                    table.ForeignKey(
-                        name: "FK_Rdvs_Medecins_MedecinId",
-                        column: x => x.MedecinId,
-                        principalTable: "Medecins",
-                        principalColumn: "MedecinID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Rdvs_Patients_PatientId",
-                        column: x => x.PatientId,
-                        principalTable: "Patients",
-                        principalColumn: "PatientID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Rdvs_salles_SalleId",
-                        column: x => x.SalleId,
-                        principalTable: "salles",
-                        principalColumn: "SalleID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "jalon",
                 columns: table => new
                 {
                     JalonID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     nom = table.Column<string>(nullable: false),
-                    ProjetiD = table.Column<int>(nullable: false)
+                    ProjetiD = table.Column<int>(nullable: false),
+                    RespID = table.Column<int>(nullable: false),
+                    datefinprevue = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -143,6 +61,12 @@ namespace Medecins.Migrations
                         column: x => x.ProjetiD,
                         principalTable: "Projets",
                         principalColumn: "ProjetID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_jalon_resp_RespID",
+                        column: x => x.RespID,
+                        principalTable: "resp",
+                        principalColumn: "RespID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -177,7 +101,7 @@ namespace Medecins.Migrations
                     datedemarage = table.Column<DateTime>(nullable: false),
                     TachePreceTacheID = table.Column<int>(nullable: true),
                     nbjours = table.Column<int>(nullable: false),
-                    RespsRespID = table.Column<int>(nullable: true),
+                    RespID = table.Column<int>(nullable: false),
                     datedebuttache = table.Column<DateTime>(nullable: true),
                     datefintache = table.Column<DateTime>(nullable: true),
                     JalonID = table.Column<int>(nullable: false)
@@ -192,11 +116,11 @@ namespace Medecins.Migrations
                         principalColumn: "JalonID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_taches_resp_RespsRespID",
-                        column: x => x.RespsRespID,
+                        name: "FK_taches_resp_RespID",
+                        column: x => x.RespID,
                         principalTable: "resp",
                         principalColumn: "RespID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_taches_taches_TachePreceTacheID",
                         column: x => x.TachePreceTacheID,
@@ -285,9 +209,9 @@ namespace Medecins.Migrations
                 column: "ProjetiD");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Patients_MedecinID",
-                table: "Patients",
-                column: "MedecinID");
+                name: "IX_jalon_RespID",
+                table: "jalon",
+                column: "RespID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Projets_RespID",
@@ -295,29 +219,14 @@ namespace Medecins.Migrations
                 column: "RespID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rdvs_MedecinId",
-                table: "Rdvs",
-                column: "MedecinId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rdvs_PatientId",
-                table: "Rdvs",
-                column: "PatientId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rdvs_SalleId",
-                table: "Rdvs",
-                column: "SalleId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_taches_JalonID",
                 table: "taches",
                 column: "JalonID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_taches_RespsRespID",
+                name: "IX_taches_RespID",
                 table: "taches",
-                column: "RespsRespID");
+                column: "RespID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_taches_TachePreceTacheID",
@@ -336,28 +245,16 @@ namespace Medecins.Migrations
                 name: "Exigeance_Tache");
 
             migrationBuilder.DropTable(
-                name: "Rdvs");
-
-            migrationBuilder.DropTable(
                 name: "Exigeance");
 
             migrationBuilder.DropTable(
                 name: "taches");
 
             migrationBuilder.DropTable(
-                name: "Patients");
-
-            migrationBuilder.DropTable(
-                name: "salles");
-
-            migrationBuilder.DropTable(
                 name: "TypeExigeance");
 
             migrationBuilder.DropTable(
                 name: "jalon");
-
-            migrationBuilder.DropTable(
-                name: "Medecins");
 
             migrationBuilder.DropTable(
                 name: "Projets");

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Jalons.Models;
 using MovieContexts.Models;
 
-namespace Medecins.Pages.Jalons
+namespace Gprojet.Pages.Jalons
 {
     public class EditModel : PageModel
     {
@@ -31,13 +31,15 @@ namespace Medecins.Pages.Jalons
             }
 
             Jalon = await _context.jalon
-                .Include(j => j.Projet).FirstOrDefaultAsync(m => m.JalonID == id);
+                .Include(j => j.Projet)
+                .Include(j => j.Resp).FirstOrDefaultAsync(m => m.JalonID == id);
 
             if (Jalon == null)
             {
                 return NotFound();
             }
            ViewData["ProjetiD"] = new SelectList(_context.Projets, "ProjetID", "ProjetID");
+           ViewData["RespID"] = new SelectList(_context.resp, "RespID", "RespID");
             return Page();
         }
 
@@ -66,7 +68,7 @@ namespace Medecins.Pages.Jalons
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{id = Jalon.ProjetiD});
         }
 
         private bool JalonExists(int id)

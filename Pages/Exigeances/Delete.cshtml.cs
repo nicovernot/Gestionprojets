@@ -55,7 +55,7 @@ namespace Medecins.Pages.Exigeances
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{id=Exigeance.ProjetID});
         }
     }
 }

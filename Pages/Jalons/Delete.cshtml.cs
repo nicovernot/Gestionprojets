@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Jalons.Models;
 using MovieContexts.Models;
 
-namespace Medecins.Pages.Jalons
+namespace Gprojet.Pages.Jalons
 {
     public class DeleteModel : PageModel
     {
@@ -30,7 +30,8 @@ namespace Medecins.Pages.Jalons
             }
 
             Jalon = await _context.jalon
-                .Include(j => j.Projet).FirstOrDefaultAsync(m => m.JalonID == id);
+                .Include(j => j.Projet)
+                .Include(j => j.Resp).FirstOrDefaultAsync(m => m.JalonID == id);
 
             if (Jalon == null)
             {
@@ -54,7 +55,7 @@ namespace Medecins.Pages.Jalons
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{id = Jalon.ProjetiD});
         }
     }
 }

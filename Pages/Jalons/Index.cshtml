@@ -1,5 +1,5 @@
 @page
-@model Medecins.Pages.Jalons.IndexModel
+@model Gprojet.Pages.Jalons.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -19,6 +19,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Jalon[0].Projet)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jalon[0].datefinprevue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jalon[0].Resp)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -32,8 +38,14 @@
                 @Html.DisplayFor(modelItem => item.Projet.ProjetID)
             </td>
             <td>
-                <a asp-page="../Taches/Index" asp-route-id="@item.JalonID">Voir Taches</a> |
-                <a asp-page="../Taches/Create" asp-route-id="@item.JalonID">Créer Tache</a> |
+                @Html.DisplayFor(modelItem => item.datefinprevue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resp.RespID)
+            </td>
+            <td>
+                <a class="btn bg-info" asp-page="../Taches/Index" asp-route-id="@item.JalonID">Voir Taches</a> |
+                <a class="btn bg-danger" asp-page="../Taches/Create" asp-route-id="@item.JalonID">Créer Tache</a> |
                 <a asp-page="./Edit" asp-route-id="@item.JalonID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.JalonID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.JalonID">Delete</a>

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Jalons.Models;
 using MovieContexts.Models;
 
-namespace Medecins.Pages.Jalons
+namespace Gprojet.Pages.Jalons
 {
     public class DetailsModel : PageModel
     {
@@ -29,7 +29,8 @@ namespace Medecins.Pages.Jalons
             }
 
             Jalon = await _context.jalon
-                .Include(j => j.Projet).FirstOrDefaultAsync(m => m.JalonID == id);
+                .Include(j => j.Projet)
+                .Include(j => j.Resp).FirstOrDefaultAsync(m => m.JalonID == id);
 
             if (Jalon == null)
             {

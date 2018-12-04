@@ -44,10 +44,10 @@
                 @Html.DisplayFor(modelItem => item.resp.nom)
             </td>
             <td>
-                <a asp-page="../Exigeances/Create" asp-route-id="@item.ProjetID">Créer Exigeance</a> |
-                <a asp-page="../Exigeances/Index" asp-route-id="@item.ProjetID">Voir Exigeances</a> |
-                 <a asp-page="../Jalons/Create" asp-route-id="@item.ProjetID">Créer Jalon</a> |
-                 <a asp-page="../Jalons/Index" asp-route-id="@item.ProjetID">Voir Jalons</a> |
+                <a class="btn bg-info" asp-page="../Exigeances/Create" asp-route-id="@item.ProjetID">Créer Exigeance</a> |
+                <a class="btn bg-danger"  asp-page="../Exigeances/Index" asp-route-id="@item.ProjetID">Voir Exigeances</a> |
+                 <a class="btn bg-info" asp-page="../Jalons/Create" asp-route-id="@item.ProjetID">Créer Jalon</a> |
+                 <a class="btn bg-danger"  asp-page="../Jalons/Index" asp-route-id="@item.ProjetID">Voir Jalons</a> |
                 <a asp-page="./Edit" asp-route-id="@item.ProjetID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ProjetID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ProjetID">Delete</a>

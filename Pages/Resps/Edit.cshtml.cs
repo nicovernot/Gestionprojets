@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieContexts.Models;
 using Resps.Models;
 
-namespace Medecins.Pages.Resps
+namespace Gprojet.Pages.Resps
 {
     public class EditModel : PageModel
     {

@@ -68,7 +68,7 @@ namespace Medecins.Pages.Exigeances
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{id=Exigeance.ProjetID});
         }
 
         private bool ExigeanceExists(int id)

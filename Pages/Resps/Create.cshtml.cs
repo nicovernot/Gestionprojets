@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieContexts.Models;
 using Resps.Models;
 
-namespace Medecins.Pages.Resps
+namespace Gprojet.Pages.Resps
 {
     public class CreateModel : PageModel
     {

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieContexts.Models;
 using Taches.Models;
 
-namespace Medecins.Pages.Taches
+namespace Gprojet.Pages.Taches
 {
     public class CreateModel : PageModel
     {
@@ -22,6 +22,7 @@ namespace Medecins.Pages.Taches
         public IActionResult OnGet()
         {
         ViewData["JalonID"] = new SelectList(_context.jalon, "JalonID", "nom");
+        ViewData["RespID"] = new SelectList(_context.resp, "RespID", "nom");
             return Page();
         }
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Jalons.Models;
 using MovieContexts.Models;
 
-namespace Medecins.Pages.Jalons
+namespace Gprojet.Pages.Jalons
 {
     public class IndexModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Medecins.Pages.Jalons
             _context = context;
         }
 
-        public IList<Jalon> Jalon { get;set; }
+       public IList<Jalon> Jalon { get;set; }
 
         public async Task OnGetAsync(int id)
         {
