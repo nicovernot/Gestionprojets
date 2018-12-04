@@ -39,7 +39,7 @@ namespace Gprojet.Pages.Jalons
             _context.jalon.Add(Jalon);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{id = Jalon.ProjetiD});
         }
     }
 }

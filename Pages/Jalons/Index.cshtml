@@ -35,13 +35,13 @@
                 @Html.DisplayFor(modelItem => item.nom)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Projet.ProjetID)
+                @Html.DisplayFor(modelItem => item.Projet.trigrame)
             </td>
-            <td>
+            <td class="bg-success">
                 @Html.DisplayFor(modelItem => item.datefinprevue)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Resp.RespID)
+                @Html.DisplayFor(modelItem => item.Resp.nom)
             </td>
             <td>
                 <a class="btn bg-info" asp-page="../Taches/Index" asp-route-id="@item.JalonID">Voir Taches</a> |

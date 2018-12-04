@@ -23,6 +23,7 @@ namespace Gprojet.Pages.Taches
 
         public async Task OnGetAsync()
         {
+            
             Tache = await _context.taches
                 .Include(t => t.Jalons)
                 .Include(t => t.Resps).ToListAsync();

@@ -4,6 +4,7 @@ using System.Linq;
 using Jalons.Models;
 using MovieContexts.Models;
 using System;
+using System.Globalization;
 
 namespace TodoApi.Controllers
 {
@@ -34,6 +35,21 @@ public ActionResult<Jalon> GetById(long id)
     {
         return NotFound();
     }
+    return item;
+}
+
+
+[HttpGet("Maxdate{id}", Name = "GetJalonMaxdate")]
+public ActionResult<DateTime> GetByMaxdate(long id)
+{
+    var item = _context.jalon.Where(x=>x.ProjetiD==id).Max(x=>x.datefinprevue);
+    if (item == null)
+    {
+        return NotFound();
+    }
+ 
+  
+
     return item;
 }
 

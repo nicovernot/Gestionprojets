@@ -25,6 +25,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Projet[0].resp)
             </th>
+            <th>
+            Jalons
+            </th>
+              <th>
+               Date prevue Fin
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -43,16 +49,89 @@
             <td>
                 @Html.DisplayFor(modelItem => item.resp.nom)
             </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Jalon.Count)
+            </td>
+             <td>
+               <p class="df" id="@item.ProjetID"></p>
+            </td>
+
             <td>
-                <a class="btn bg-info" asp-page="../Exigeances/Create" asp-route-id="@item.ProjetID">Créer Exigeance</a> |
-                <a class="btn bg-danger"  asp-page="../Exigeances/Index" asp-route-id="@item.ProjetID">Voir Exigeances</a> |
-                 <a class="btn bg-info" asp-page="../Jalons/Create" asp-route-id="@item.ProjetID">Créer Jalon</a> |
-                 <a class="btn bg-danger"  asp-page="../Jalons/Index" asp-route-id="@item.ProjetID">Voir Jalons</a> |
-                <a asp-page="./Edit" asp-route-id="@item.ProjetID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProjetID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProjetID">Delete</a>
+          
+ <ul class="navbar-nav bg-success" >
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Exigeances
+      </a>
+      <div class="dropdown-menu">
+ <a class="btn bg-info" asp-page="../Exigeances/Create" asp-route-id="@item.ProjetID">Créer Exigeance</a> 
+               <a class="btn bg-danger"  asp-page="../Exigeances/Index" asp-route-id="@item.ProjetID">Voir Exigeances</a> 
+      </div>
+    </li>
+  </ul>
+
+
+   <ul class="navbar-nav bg-danger">
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Jalons
+      </a>
+      <div class="dropdown-menu">
+<a class="btn bg-info" asp-page="../Jalons/Create" asp-route-id="@item.ProjetID">Créer Jalon</a> 
+                 <a class="btn bg-danger"  asp-page="../Jalons/Index" asp-route-id="@item.ProjetID">Voir Jalons</a> 
+      </div>
+    </li>
+  </ul>
+ 
+   <ul class="navbar-nav bg-warning">
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+         Projets
+      </a>
+      <div class="dropdown-menu"><a asp-page="./Edit" asp-route-id="@item.ProjetID">Edit</a> 
+                <a asp-page="./Details" asp-route-id="@item.ProjetID">Details</a> 
+                <a asp-page="./Delete" asp-route-id="@item.ProjetID">Delete</a> 
+                  </div>
+    </li>
+  </ul>
+              
+                 
+                
             </td>
         </tr>
+   
 }
+  
     </tbody>
 </table>
+
+@section scripts {
+
+<script>
+$(document).ready(function(){
+
+
+var listch =$(".df");
+
+for (i=0;i<listch.length;i++){
+var id = listch[i].getAttribute("id");
+console.log(id);
+getdatefinal(id);
+}
+
+function getdatefinal(id){
+     $.get("api/Jalon/Maxdate"+id, function(data, status){
+         var d = data.slice(0,10);
+
+$('.df#'+id).text(d);        
+        });
+
+}
+
+
+});
+</script>
+
+
+
+}

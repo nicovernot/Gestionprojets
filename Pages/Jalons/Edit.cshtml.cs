@@ -38,8 +38,8 @@ namespace Gprojet.Pages.Jalons
             {
                 return NotFound();
             }
-           ViewData["ProjetiD"] = new SelectList(_context.Projets, "ProjetID", "ProjetID");
-           ViewData["RespID"] = new SelectList(_context.resp, "RespID", "RespID");
+           ViewData["ProjetiD"] = new SelectList(_context.Projets, "ProjetID", "nom");
+           ViewData["RespID"] = new SelectList(_context.resp, "RespID", "nom");
             return Page();
         }
 

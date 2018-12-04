@@ -24,6 +24,7 @@ namespace Gprojet.Pages.Jalons
         public async Task OnGetAsync(int id)
         {
             Jalon = await _context.jalon.Where(x=>x.ProjetiD==id)
+                .Include(i => i.Resp)
                 .Include(j => j.Projet).ToListAsync();
         }
     }

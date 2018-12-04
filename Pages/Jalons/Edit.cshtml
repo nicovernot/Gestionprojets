@@ -20,10 +20,8 @@
                 <span asp-validation-for="Jalon.nom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Jalon.ProjetiD" class="control-label"></label>
-                <select asp-for="Jalon.ProjetiD" class="form-control" asp-items="ViewBag.ProjetiD"></select>
-                <span asp-validation-for="Jalon.ProjetiD" class="text-danger"></span>
-            </div>
+                <input asp-for="Jalon.ProjetiD" class ="form-control" value="@Request.Query["id"]" style="display:none;">
+           </div>
             <div class="form-group">
                 <label asp-for="Jalon.RespID" class="control-label"></label>
                 <select asp-for="Jalon.RespID" class="form-control" asp-items="ViewBag.RespID"></select>

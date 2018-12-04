@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieContexts.Models;
 using Taches.Models;
+using Jalons.Models;
 
 namespace Gprojet.Pages.Taches
 {
@@ -35,7 +36,18 @@ namespace Gprojet.Pages.Taches
             {
                 return Page();
             }
-
+              var datefin= Tache.datedemarage.AddDays(Tache.nbjours);
+              Console.WriteLine("datefin"+datefin);
+              Jalon jalon = _context.jalon.Find(Tache.JalonID);  
+              if (jalon.datefinprevue !=null && jalon.datefinprevue<datefin){
+              jalon.datefinprevue = datefin; 
+              _context.jalon.Update(jalon);
+              }
+              if (jalon.datefinprevue ==null){
+                 jalon.datefinprevue = datefin; 
+                 _context.jalon.Update(jalon);
+              }
+             
             _context.taches.Add(Tache);
             await _context.SaveChangesAsync();
 
