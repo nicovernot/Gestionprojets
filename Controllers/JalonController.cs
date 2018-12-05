@@ -5,6 +5,7 @@ using Jalons.Models;
 using MovieContexts.Models;
 using System;
 using System.Globalization;
+using Microsoft.EntityFrameworkCore;
 
 namespace TodoApi.Controllers
 {
@@ -36,6 +37,19 @@ public ActionResult<Jalon> GetById(long id)
         return NotFound();
     }
     return item;
+}
+
+
+[HttpGet("bypr{id}", Name = "GetJalonbypr")]
+public ActionResult<List<Jalon>> GetJalonbypr(long id)
+{
+    var item = _context.jalon.Where(x=>x.ProjetiD==id)
+                .Include(n => n.Tache);
+    if (item == null)
+    {
+        return NotFound();
+    }
+    return item.ToList();
 }
 
 

@@ -37,6 +37,27 @@ public ActionResult<Tache> GetById(long id)
     return item;
 }
 
+[HttpGet("gtbj{id}", Name = "GettachebyJalon")]
+public ActionResult<Array> Gettachebyjalon(long id)
+{
+   
+   
+    var tachesfinis = _context.taches
+    .Where(x=>x.JalonID==id && x.datedemarage!=null && x.datefintache!=null).Count();
+var tachescom = _context.taches
+    .Where(x=>x.JalonID==id && x.datedemarage!=null && x.datefintache==null).Count();
+    var nbtaches = _context.taches
+    .Where(x=>x.JalonID==id).Count();
+   int[] item = new int[3];
+  item[0]=tachesfinis; 
+  item[1]=tachescom;
+  item[2]=nbtaches;
+ 
+
+    return item;
+}
+
+
 [HttpPost]
 public IActionResult Create(Tache item)
 {

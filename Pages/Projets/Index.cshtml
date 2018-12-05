@@ -3,9 +3,14 @@
 
 @{
     ViewData["Title"] = "Index";
+    int Ccolor =0;
+    string[] colors = {"bg-primary", "bg-success", "bg-info", "bg-warning", "bg-danger"};
+    int tdc = 0;
+    int tdf = 0 ; 
+    int nbj = 0 ;
 }
 
-<h2>Index</h2>
+<h2 class="@colors[3]">Projets</h2>
 
 <p>
     <a asp-page="Create">Créer un noveau Projet</a>
@@ -28,19 +33,26 @@
             <th>
             Jalons
             </th>
+            <th>
+            Exigeances
+            </th>
               <th>
                Date prevue Fin
+            </th>
+              <th>
+               avancement
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Projet) {
+    
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.nom)
             </td>
-            <td>
+            <td class="@colors[Ccolor]">
                 @Html.DisplayFor(modelItem => item.trigrame)
             </td>
             <td>
@@ -52,8 +64,14 @@
              <td>
                 @Html.DisplayFor(modelItem => item.Jalon.Count)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exigeance.Count)
+            </td>
              <td>
                <p class="df" id="@item.ProjetID"></p>
+            </td>
+            <td id="avcm">
+              avancement
             </td>
 
             <td>
@@ -99,12 +117,34 @@
                 
             </td>
         </tr>
-   
+
+        if (Ccolor<colors.Length){
+   Ccolor = Ccolor+1;
+        }else{
+            Ccolor=0;
+        }
 }
   
     </tbody>
 </table>
 
+@foreach (var item in await Model.GetTacheAsyn(2))
+{
+     nbj = nbj +1;
+    @foreach (var item1 in item.Tache.Where(x=>x.datedebuttache!=null && x.datefintache==null))
+    {
+        tdc = tdc +1;
+    }
+    
+    @foreach (var item1 in item.Tache.Where(x=>x.datedebuttache!=null && x.datefintache!=null))
+    {
+        tdf = tdf +2;
+    }
+}
+
+@tdc
+@tdf 
+@nbj
 @section scripts {
 
 <script>
@@ -115,15 +155,54 @@ var listch =$(".df");
 
 for (i=0;i<listch.length;i++){
 var id = listch[i].getAttribute("id");
-console.log(id);
+
 getdatefinal(id);
 }
+getjalons();
+//console.log((100/3).toFixed(2));
+function getjalons(){
+     $.get("api/Jalon/bypr2", function(data, status){
+         var tab = [];
+ for(var i=0;i<data.length;i++){
+     tab[i] = data[i].jalonID;
+    
+ }
+var tab2=[];
+
+ for(var i=0;i<tab.length;i++){
+var tt=0;
+ var countx = 0;
+ var county = 0;
+ var countz = 0;
+     $.get("/api/Tache/gtbj"+tab[i], function(data, status){
+         countx += data[0];
+       
+         console.log("cx "+countx);
+         tab2.push(data);
+     });
+ }
+   console.log("cx1 "+countx);
+
+var tab3 = tab2;
+console.log(tab3);
+
+
+console.log(countx+ "x "+ county + " y" + countz+ " z");   
+
+});
+
+
+};
+
 
 function getdatefinal(id){
      $.get("api/Jalon/Maxdate"+id, function(data, status){
-         var d = data.slice(0,10);
+     if(status=='success'){
+                var d = data.slice(0,10);
 
-$('.df#'+id).text(d);        
+$('.df#'+id).text(d); 
+     }
+        
         });
 
 }

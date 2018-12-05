@@ -21,10 +21,10 @@ namespace Gprojet.Pages.Taches
 
         public IList<Tache> Tache { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int id)
         {
             
-            Tache = await _context.taches
+            Tache = await _context.taches.Where(x=>x.JalonID==id)
                 .Include(t => t.Jalons)
                 .Include(t => t.Resps).ToListAsync();
         }

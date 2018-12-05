@@ -25,6 +25,7 @@ namespace Gprojet.Pages.Jalons
         {
             Jalon = await _context.jalon.Where(x=>x.ProjetiD==id)
                 .Include(i => i.Resp)
+                .Include(n => n.Tache)
                 .Include(j => j.Projet).ToListAsync();
         }
     }

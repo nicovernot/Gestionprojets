@@ -25,6 +25,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Jalon[0].Resp)
             </th>
+            <th>
+                Avancement
+            </th>
+            <th>
+                Taches
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -34,7 +40,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.nom)
             </td>
-            <td>
+            <td class="bg-dark">
                 @Html.DisplayFor(modelItem => item.Projet.trigrame)
             </td>
             <td class="bg-success">
@@ -42,6 +48,37 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Resp.nom)
+            </td>
+            <td id="avn" data="@item.JalonID" >
+                @{int ctt = 0;}
+                 
+                @for(var i=0;i<item.Tache.Count;i++){
+                    foreach(var val in item.Tache){
+                     if (val.datedebuttache!=null && val.datefintache!=null){
+                   ctt = ctt +2;
+                  
+                     }
+                    if (val.datedebuttache!=null && val.datefintache==null){
+                   ctt = +1;
+                  
+                     }
+               
+                    }
+
+                }
+                       @if (item.Tache.Count==0 || ctt==0){
+                      <p class="bg-danger">0%</p>
+                        }
+                       
+                                     @if (ctt>0 && ctt<item.Tache.Count){
+                      <p class="bg-alert">50%</p>
+                     }
+                     @if (ctt== item.Tache.Count*2 && ctt!=0){
+                      <p class="bg-success">100% </p>
+                     }
+            </td>
+            <td  >
+                @Html.DisplayFor(modelItem => item.Tache.Count)
             </td>
             <td>
                 <a class="btn bg-info" asp-page="../Taches/Index" asp-route-id="@item.JalonID">Voir Taches</a> |
@@ -54,3 +91,33 @@
 }
     </tbody>
 </table>
+@section scripts {
+
+<script>
+$(document).ready(function(){
+
+
+var listch =$(".df");
+
+for (i=0;i<listch.length;i++){
+var id = listch[i].getAttribute("id");
+console.log(id);
+getdatefinal(id);
+}
+
+function getdatefinal(id){
+     $.get("api/Jalon/Maxdate"+id, function(data, status){
+         var d = data.slice(0,10);
+
+$('.df#'+id).text(d);        
+        });
+
+}
+
+
+});
+</script>
+
+
+
+}
