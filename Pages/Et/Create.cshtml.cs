@@ -19,9 +19,9 @@ namespace Medecins.Pages.Et
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int pr)
         {
-        ViewData["ExigeanceID"] = new SelectList(_context.Exigeance, "ExigeanceID", "description");
+        ViewData["ExigeanceID"] = new SelectList(_context.Exigeance.Where(x=>x.ProjetID==pr), "ExigeanceID", "description");
         ViewData["TacheID"] = new SelectList(_context.taches, "TacheID", "description");
             return Page();
         }

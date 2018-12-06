@@ -85,6 +85,7 @@
                 }
             </td>
             <td>
+                <a asp-page="../Et/Create" asp-route-id="@item.TacheID" asp-route-pr="@item.Jalons.ProjetiD">Lier à éxigeance</a> |
                 <a asp-page="./Edit" asp-route-id="@item.TacheID">Edition </a> |
                 <a asp-page="./Details" asp-route-id="@item.TacheID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.TacheID">Effacer</a>

@@ -8,7 +8,7 @@
 <h2>Exigeances</h2>
 
 <p>
-    <a asp-page="Create" asp-route-id="@Request.Query["id"]">Create New</a>
+    <a asp-page="Create" asp-route-id="@Request.Query["id"]">Créer nouvelle Exigeance</a>
 </p>
 <table class="table">
     <thead>
@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.TypeExigeance.nom)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ExigeanceID">Edit</a> |
+                <a asp-page="./Edit" asp-route-id="@item.ExigeanceID">Edition</a> |
                 <a asp-page="./Details" asp-route-id="@item.ExigeanceID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ExigeanceID">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@item.ExigeanceID">éffacer</a>
             </td>
         </tr>
 }

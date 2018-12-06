@@ -66,6 +66,13 @@
 /home/nico/Projects/Medecins/obj/Debug/netcoreapp2.1/Gprojet.dll
 /home/nico/Projects/Medecins/obj/Debug/netcoreapp2.1/Gprojet.pdb
 /home/nico/Projects/Medecins/obj/Debug/netcoreapp2.1/Gprojet.csproj.CopyComplete
+/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.deps.json
+/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.runtimeconfig.json
+/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.runtimeconfig.dev.json
+/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.dll
+/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.pdb
+/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.Views.dll
+/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.Views.pdb
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.csprojAssemblyReference.cache
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.csproj.CoreCompileInputs.cache
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.RazorAssemblyInfo.cache
@@ -75,15 +82,6 @@
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.TagHelpers.input.cache
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.TagHelpers.output.cache
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.RazorCoreGenerate.cache
-/home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.dll
-/home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.pdb
-/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.deps.json
-/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.runtimeconfig.json
-/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.runtimeconfig.dev.json
-/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.dll
-/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.pdb
-/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.Views.dll
-/home/nico/Projects/GProjet/bin/Debug/netcoreapp2.1/Gprojet.Views.pdb
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Razor/Pages/About.g.cshtml.cs
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Razor/Pages/Contact.g.cshtml.cs
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Razor/Pages/Error.g.cshtml.cs
@@ -133,4 +131,6 @@
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.RazorTargetAssemblyInfo.cache
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.RazorTargetAssemblyInfo.cs
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.Views.pdb
+/home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.dll
+/home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.pdb
 /home/nico/Projects/GProjet/obj/Debug/netcoreapp2.1/Gprojet.csproj.CopyComplete

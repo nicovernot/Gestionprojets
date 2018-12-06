@@ -43,7 +43,7 @@ namespace Gprojet.Pages.Taches
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace Gprojet.Pages.Taches
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{id = Tache.JalonID});
         }
 
         private bool TacheExists(int id)

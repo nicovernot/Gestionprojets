@@ -4,15 +4,12 @@
     ViewData["Title"] = "Home page";
 }
 
- <select class="dropdown" name="projet">
-  <option value="">Choisir le projet</option>
-@foreach (var item in Model.Projet) {
-  <option value="@item.ProjetID">@item.nom</option>
-}
-</select> 
+<div class="jumbotron">
+  <h1>Gestion de Projets</h1>
+  <p>Bienvenu</p>
+</div>
 
-       
-<div class="timetable"></div>
+
    @section scripts {
 <script src="~/js/timetable.js"></script>
 
