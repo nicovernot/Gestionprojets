@@ -64,7 +64,7 @@ using Medecins;
             WriteLiteral("\r\n<h2>Taches</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(141, 45, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86042b284db240e18c0aa0b2bb89a1c6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "869d0a074b6743398ff101a0989c045d", async() => {
                 BeginContext(162, 20, true);
                 WriteLiteral("Créer nouvelle Tache");
                 EndContext();
@@ -306,7 +306,7 @@ using Medecins;
             WriteLiteral("            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(2694, 113, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6a0ac652982f4c278bc29346599b9fac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a69187048b1149d0a2b58f36e66995d7", async() => {
                 BeginContext(2787, 16, true);
                 WriteLiteral("Lier à éxigeance");
                 EndContext();
@@ -350,7 +350,7 @@ using Medecins;
             WriteLiteral(" |\r\n              \r\n                ");
             EndContext();
             BeginContext(2843, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6cf5ee7838a84996bdabdc9ac5e1c9f2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b0c5b96b0a0645c5b836e4d6c4f63b4b", async() => {
                 BeginContext(2893, 8, true);
                 WriteLiteral("Edition ");
                 EndContext();
@@ -385,7 +385,7 @@ using Medecins;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2925, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3502f3a04af942219265e47d56d4ab72", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16ea57c8e72c4474ad836735cefc8151", async() => {
                 BeginContext(2978, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -420,7 +420,7 @@ using Medecins;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(3009, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43206f09a6814ea5a582d0429cacf3ad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bce7828ec8594ad7bc7ce2b5a635bd41", async() => {
                 BeginContext(3061, 7, true);
                 WriteLiteral("Effacer");
                 EndContext();
@@ -464,7 +464,7 @@ using Medecins;
             WriteLiteral("    </tbody>\r\n    \r\n</table>\r\n        ");
             EndContext();
             BeginContext(3190, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5e093fcfd6924d698842a4d0d397cf1f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c1037b0b75641efa264f0df9f1707ea", async() => {
                 BeginContext(3243, 13, true);
                 WriteLiteral("Retour Jalons");
                 EndContext();

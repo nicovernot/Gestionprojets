@@ -66,7 +66,7 @@ using Medecins;
             WriteLiteral("\r\n<h2>Jalons</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(120, 74, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4d7aa857ea40d29c655e6779e9070b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6cfc3e365c4b4946990d20ea33d1a34c", async() => {
                 BeginContext(177, 13, true);
                 WriteLiteral("Créer Nouveau");
                 EndContext();
@@ -286,7 +286,7 @@ WriteAttributeValue("", 1412, item.JalonID, 1412, 13, false);
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(2574, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4008237e17d41d481ba28aefaa5ebed", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cafc9e9ba35641569432d5450b6b0326", async() => {
                 BeginContext(2653, 11, true);
                 WriteLiteral("Voir Taches");
                 EndContext();
@@ -322,7 +322,7 @@ WriteAttributeValue("", 1412, item.JalonID, 1412, 13, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2688, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5d76a89547b54b62b6d46c9324a88e62", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40324ed6ba624f1a9bd29d8501d2a2e6", async() => {
                 BeginContext(2770, 11, true);
                 WriteLiteral("Créer Tache");
                 EndContext();
@@ -358,7 +358,7 @@ WriteAttributeValue("", 1412, item.JalonID, 1412, 13, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2805, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bc3442cb7e984b93bfd1ba1f1981e4cb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d1300c7105fb49abbcf5048a801897bf", async() => {
                 BeginContext(2855, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -393,7 +393,7 @@ WriteAttributeValue("", 1412, item.JalonID, 1412, 13, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2883, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "621e4e3277ed4bbabd5c38e28df7c817", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "17f28ca5cce24a8a8aa64aeca0148c5a", async() => {
                 BeginContext(2936, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -428,7 +428,7 @@ WriteAttributeValue("", 1412, item.JalonID, 1412, 13, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2967, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd67e1e78a134a63b29bf37027afef4e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5ae3285e8bd4ccd80191a2114efa98b", async() => {
                 BeginContext(3019, 7, true);
                 WriteLiteral("Effacer");
                 EndContext();
@@ -471,7 +471,7 @@ WriteAttributeValue("", 1412, item.JalonID, 1412, 13, false);
             WriteLiteral("    </tbody>\r\n</table>\r\n\r\n ");
             EndContext();
             BeginContext(3096, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b20b300f88e46b19a99c89e32d13168", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13e6917909e349b6a33ff9de8ad9560d", async() => {
                 BeginContext(3127, 14, true);
                 WriteLiteral("Retour Projets");
                 EndContext();
