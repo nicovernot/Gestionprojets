@@ -10,7 +10,7 @@
 <p>
     <a asp-page="Create" asp-route-id="@Request.Query["id"]">Créer Nouveau</a>
 </p>
-<table class="table">
+<table class="table table-striped ">
     <thead>
         <tr>
             <th>
@@ -40,7 +40,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.nom)
             </td>
-            <td class="bg-dark">
+            <td class="bg-primary">
                 @Html.DisplayFor(modelItem => item.Projet.trigrame)
             </td>
             <td class="bg-success">

@@ -3,6 +3,9 @@
 
 @{
     ViewData["Title"] = "Index";
+    var ctaches = 0; 
+    var tf = 0 ;
+    var tc = 0;
 }
 
 <h2>Exigeances</h2>
@@ -10,7 +13,7 @@
 <p>
     <a asp-page="Create" asp-route-id="@Request.Query["id"]">Créer nouvelle Exigeance</a>
 </p>
-<table class="table">
+<table class="table table-striped ">
     <thead>
         <tr>
             <th>
@@ -25,6 +28,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Exigeance[0].TypeExigeance)
             </th>
+            <th>
+                    Tache/Exigeance
+            </th>
+              <th>
+                    Avancement
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -37,11 +46,53 @@
             <td>
                 @Html.DisplayFor(modelItem => item.description)
             </td>
-            <td>
+            <td class="bg-primary">
                 @Html.DisplayFor(modelItem => item.Projet.trigrame)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeExigeance.nom)
+            </td>
+             <td>
+
+
+               @foreach (var item1 in await Model.GetExiAsync(item.ExigeanceID))
+{
+    
+    ctaches = ctaches +1;
+}
+@ctaches
+                
+            </td>
+            <td class="bg-success" >
+               @foreach (var item1 in await Model.GetExiAsync(item.ExigeanceID))
+{
+    
+    @foreach (var item2 in await Model.GetTacheAsync(item1.TacheID))
+    {
+        if (item2.datedebuttache!=null && item2.datefintache!=null)
+        {
+         tf=tf+2;
+        }
+
+         if (item2.datedebuttache!=null && item2.datefintache==null)
+        {
+         tc=tc+1;
+        }
+    }
+}
+            @if (ctaches>0)
+            {
+              @((100*(tf+tc)/ctaches)+"%")
+    tc = 0;
+    tf = 0 ; 
+    ctaches =0;
+            }else
+            {
+               <p>0%</p>
+            }
+              
+
+
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ExigeanceID">Edition</a> |
@@ -54,3 +105,4 @@
 </table>
 
 <a asp-page="../Projets/Index">Retour Projets</a>
+
