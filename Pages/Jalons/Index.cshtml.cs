@@ -21,12 +21,17 @@ namespace Gprojet.Pages.Jalons
 
        public IList<Jalon> Jalon { get;set; }
 
-        public async Task OnGetAsync(int id)
+        public async Task OnGetAsync(int id,int jalid)
         {
-            Jalon = await _context.jalon.Where(x=>x.ProjetiD==id)
+            if (id!=0){
+           Console.WriteLine("id existe");
+                Jalon = await _context.jalon.Where(x=>x.ProjetiD==id)
                 .Include(i => i.Resp)
                 .Include(n => n.Tache)
                 .Include(j => j.Projet).ToListAsync();
+            }
+                      
+       
         }
     }
 }

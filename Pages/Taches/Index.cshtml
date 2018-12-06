@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var idproj = 0;
 }
 
 <h2>Taches</h2>
@@ -77,6 +78,7 @@
                 }
                 @if (item.datedebuttache==null && item.datefintache==null)
                 {
+
                     <p class="bg-danger">0%</p>
                 }
                 @if (item.datedebuttache!=null && item.datefintache!=null)
@@ -86,11 +88,15 @@
             </td>
             <td>
                 <a asp-page="../Et/Create" asp-route-id="@item.TacheID" asp-route-pr="@item.Jalons.ProjetiD">Lier à éxigeance</a> |
+              
                 <a asp-page="./Edit" asp-route-id="@item.TacheID">Edition </a> |
                 <a asp-page="./Details" asp-route-id="@item.TacheID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.TacheID">Effacer</a>
             </td>
         </tr>
+        idproj = item.Jalons.ProjetiD; 
 }
     </tbody>
+    
 </table>
+        <a asp-page="../Jalons/Index" asp-route-id="@idproj">Retour Jalons</a>
