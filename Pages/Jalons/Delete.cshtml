@@ -40,7 +40,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Jalon.JalonID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index"  asp-route-id="@Request.Query["id"]">Retour à la liste</a>
+        <input type="submit" value="éffacer" class="btn btn-default" /> |
+        <a asp-page="./Index"  asp-route-id="@Model.Jalon.ProjetiD">Retour à la liste</a>
     </form>
 </div>

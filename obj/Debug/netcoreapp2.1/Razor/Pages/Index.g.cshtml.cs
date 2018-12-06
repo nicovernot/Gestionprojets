@@ -57,7 +57,7 @@ using Medecins;
             WriteLiteral("\r\n <select class=\"dropdown\" name=\"projet\">\r\n  ");
             EndContext();
             BeginContext(117, 43, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8117a78eeaab4c99a48a44ce82c37522", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "791737d57cb04381a34fe20f010ed8df", async() => {
                 BeginContext(134, 17, true);
                 WriteLiteral("Choisir le projet");
                 EndContext();
@@ -87,7 +87,7 @@ using Medecins;
             WriteLiteral("  ");
             EndContext();
             BeginContext(203, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f63ecbe52d2d4ff4979a3a53f18d8862", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5add1efc6ffb497cb05688c5aa80fecc", async() => {
                 BeginContext(235, 8, false);
 #line 10 "/home/nico/Projects/GProjet/Pages/Index.cshtml"
                             Write(item.nom);
@@ -132,7 +132,7 @@ using Medecins;
                 WriteLiteral("\r\n");
                 EndContext();
                 BeginContext(334, 41, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72aa8e1220644b20bd0d4d85239ee4f7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "433d49d13b25464492b0e4f0e251a4ee", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

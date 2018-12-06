@@ -37,7 +37,7 @@ namespace Medecins
            
  services.AddDbContext<MovieContext>(options =>
         options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });

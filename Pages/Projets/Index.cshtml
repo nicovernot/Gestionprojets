@@ -8,6 +8,7 @@
     int tdc = 0;
     int tdf = 0 ; 
     int nbj = 0 ;
+    int tott  = 0 ;
 }
 
 <h2 class="@colors[3]">Projets</h2>
@@ -71,7 +72,48 @@
                <p class="df" id="@item.ProjetID"></p>
             </td>
             <td id="avcm">
-              avancement
+              @foreach (var item2 in await Model.GetTacheAsyn(item.ProjetID))
+{
+     nbj = nbj +1;
+     if (item2.Tache.Count>0)
+    {
+    @foreach (var item1 in item2.Tache.Where(x=>x.datedebuttache!=null && x.datefintache==null))
+    {
+        tdc = tdc +1;
+    }
+    }
+    
+    if (item2.Tache.Count>0)
+    {
+    @foreach (var item1 in item2.Tache.Where(x=>x.datedebuttache!=null && x.datefintache!=null))
+    {
+        tdf = tdf +2;
+    }
+    }
+
+    if (item2.Tache.Count>0)
+    {
+        
+    @foreach (var item1 in item2.Tache)
+    {
+        tott = tott +2;
+    }
+    }
+}
+
+
+@if (tott>0)
+{
+    @((100*(tdf+tdc)/tott)+"%")
+    tdc = 0;
+    tdf = 0 ; 
+    nbj = 0 ;
+    tott  = 0 ;
+} else{
+
+    <p>0%</p>
+}
+
             </td>
 
             <td>
@@ -128,23 +170,7 @@
     </tbody>
 </table>
 
-@foreach (var item in await Model.GetTacheAsyn(2))
-{
-     nbj = nbj +1;
-    @foreach (var item1 in item.Tache.Where(x=>x.datedebuttache!=null && x.datefintache==null))
-    {
-        tdc = tdc +1;
-    }
-    
-    @foreach (var item1 in item.Tache.Where(x=>x.datedebuttache!=null && x.datefintache!=null))
-    {
-        tdf = tdf +2;
-    }
-}
 
-@tdc
-@tdf 
-@nbj
 @section scripts {
 
 <script>
